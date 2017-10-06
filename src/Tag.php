@@ -167,6 +167,26 @@ class Tag
     }
 
     /**
+     * Empties the content of this tag.
+     *
+     * @return Tag This instance, for chaining.
+     *
+     * @throws \LogicException If this tag is a void element.
+     */
+    public function empty() : Tag
+    {
+        if ($this->isVoid) {
+            throw new \LogicException('Void elements cannot have any contents.');
+        }
+
+        $this->content = '';
+
+        return $this;
+    }
+
+    /**
+     * Sets the text content of this tag.
+     *
      * @param string $content The text content.
      *
      * @return Tag This instance, for chaining.
@@ -185,6 +205,8 @@ class Tag
     }
 
     /**
+     * Sets the HTML content of this tag.
+     *
      * @param string $content The HTML content.
      *
      * @return Tag This instance, for chaining.
@@ -198,6 +220,66 @@ class Tag
         }
 
         $this->content = $content;
+
+        return $this;
+    }
+
+    /**
+     * Appends text content to this tag.
+     *
+     * @param string $content The text content.
+     *
+     * @return Tag This instance, for chaining.
+     *
+     * @throws \LogicException If this tag is a void element.
+     */
+    public function appendTextContent(string $content) : Tag
+    {
+        if ($this->isVoid) {
+            throw new \LogicException('Void elements cannot have any contents.');
+        }
+
+        $this->content .= htmlspecialchars($content, ENT_NOQUOTES | ENT_HTML5);
+
+        return $this;
+    }
+
+    /**
+     * Appends HTML content to this tag.
+     *
+     * @param string $content The HTML content.
+     *
+     * @return Tag This instance, for chaining.
+     *
+     * @throws \LogicException If this tag is a void element.
+     */
+    public function appendHtmlContent(string $content) : Tag
+    {
+        if ($this->isVoid) {
+            throw new \LogicException('Void elements cannot have any contents.');
+        }
+
+        $this->content .= $content;
+
+        return $this;
+    }
+
+    /**
+     * Appends a tag to the contents of this tag.
+     *
+     * @param Tag $tag The tag to append.
+     *
+     * @return Tag This instance, for chaining.
+     *
+     * @throws \LogicException If this tag is a void element.
+     */
+    public function append(Tag $tag) : Tag
+    {
+        if ($this->isVoid) {
+            throw new \LogicException('Void elements cannot have any contents.');
+        }
+
+        $this->content .= $tag->render();
 
         return $this;
     }
