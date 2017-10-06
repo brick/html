@@ -34,14 +34,14 @@ class TagTest extends TestCase
 
     public function testVoidTag()
     {
-        $tag = new Tag('IMG');
-        $this->assertSame('<img>', $tag->render());
+        $tag = new Tag('IMG', ['SRC' => 'TEST.PNG']);
+        $this->assertSame('<img src="TEST.PNG">', $tag->render());
 
         $tag->setAttributes([
             'ID' => 123,
             'Src' => 'IMAGE.PNG',
             'Data-Chars' => '"\'<>'
         ]);
-        $this->assertSame('<img id="123" src="IMAGE.PNG" data-chars="&quot;\'&lt;&gt;">', $tag->render());
+        $this->assertSame('<img src="IMAGE.PNG" id="123" data-chars="&quot;\'&lt;&gt;">', $tag->render());
     }
 }

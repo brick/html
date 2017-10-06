@@ -65,14 +65,19 @@ class Tag
     /**
      * Tag constructor.
      *
-     * @param string $name The tag name.
+     * @param string $name       The tag name.
+     * @param array  $attributes The tag attributes, as an associative array of names to values. Optional.
      */
-    public function __construct(string $name)
+    public function __construct(string $name, array $attributes = [])
     {
         $name = strtolower($name);
 
         $this->name   = $name;
         $this->isVoid = in_array($name, self::VOID_ELEMENTS, true);
+
+        if ($attributes) {
+            $this->setAttributes($attributes);
+        }
     }
 
     /**
