@@ -16,8 +16,12 @@
   },
   "autoload": {
     "psr-4": {
-      "Brick\\Html\\": "src/",
-      "Brick\\Html\\Tests\\": "test/"
+      "Brick\\Html\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Brick\\Html\\Tests\\": "tests/"
     }
   }
 }
