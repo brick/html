@@ -74,7 +74,7 @@ class TagTest extends TestCase
             'class' => 'class_name'
         ]);
 
-        $this->assertInstanceOf(Tag::class, $tag->removeAttribute('class'));
+        $this->assertSame($tag, $tag->removeAttribute('class'));
         $this->assertNull($tag->getAttribute('class'));
     }
 
@@ -122,8 +122,8 @@ class TagTest extends TestCase
     {
         $tag = new Tag('p');
         $appendTextContent = 'this_is_appended_text_content';
-        $tag->appendTextContent($appendTextContent);
 
+        $this->assertSame($tag, $tag->appendTextContent($appendTextContent));
         $this->assertSame('<p>' . $appendTextContent . '</p>', $tag->render());
     }
 
@@ -141,8 +141,8 @@ class TagTest extends TestCase
     {
         $tag = new Tag('p');
         $appendHtmlContent = '<span>this_is_appended_text_content</span>';
-        $tag->appendHtmlContent($appendHtmlContent);
 
+        $this->assertSame($tag, $tag->appendHtmlContent($appendHtmlContent));
         $this->assertSame('<p>' . $appendHtmlContent . '</p>', $tag->render());
     }
 
@@ -160,8 +160,8 @@ class TagTest extends TestCase
     {
         $tag = new Tag('p');
         $tag->appendTextContent('append_text_content');
-        $tag->empty();
 
+        $this->assertSame($tag, $tag->empty());
         $this->assertTrue($tag->isEmpty());
     }
 
@@ -188,8 +188,7 @@ class TagTest extends TestCase
         $tag = new Tag('p');
         $appendTextContent = 'append_text_content';
         $tag->appendTextContent($appendTextContent);
-        $tag->render();
 
-        $this->assertSame('<p>' . $appendTextContent . '</p>', (string)$tag);
+        $this->assertSame('<p>' . $appendTextContent . '</p>', (string) $tag);
     }
 }
