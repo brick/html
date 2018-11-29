@@ -11,22 +11,10 @@ A very simple HTML generation library.
 
 ## Installation
 
-This library is installable via [Composer](https://getcomposer.org/).
-
-Just run:
+This library is installable via [Composer](https://getcomposer.org/):
 
 ```bash
 composer require brick/html
-```
-
-or manually define the following requirement in your `composer.json` file:
-
-```json
-{
-    "require": {
-        "brick/html": "0.1.*"
-    }
-}
 ```
 
 ## Requirements
