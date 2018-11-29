@@ -79,40 +79,40 @@ class TagTest extends TestCase
     }
 
     /**
-     * @expectedException        \LogicException
+     * @expectedException \LogicException
      * @expectedExceptionMessage Void elements cannot have any contents.
      */
-    public function testEmptyWithVoidElementShouldReturnLogicException()
+    public function testEmptyOnVoidElement()
     {
         $tag = new Tag('img');
         $tag->empty();
     }
 
     /**
-     * @expectedException        \LogicException
+     * @expectedException \LogicException
      * @expectedExceptionMessage Void elements cannot have any contents.
      */
-    public function testSetTextContentWithVoidElementShouldReturnLogicException()
+    public function testSetTextContentOnVoidElement()
     {
         $tag = new Tag('img');
         $tag->setTextContent('text_content');
     }
 
     /**
-     * @expectedException        \LogicException
+     * @expectedException \LogicException
      * @expectedExceptionMessage Void elements cannot have any contents.
      */
-    public function testSetHtmlContentWithVoidElementShouldReturnLogicException()
+    public function testSetHtmlContentOnVoidElement()
     {
         $tag = new Tag('img');
         $tag->setHtmlContent('<p>html_content</p>');
     }
 
     /**
-     * @expectedException        \LogicException
+     * @expectedException \LogicException
      * @expectedExceptionMessage Void elements cannot have any contents.
      */
-    public function testAppendTextContentWithVoidElementShouldReturnLogicException()
+    public function testAppendTextContentOnVoidElement()
     {
         $tag = new Tag('img');
         $tag->appendTextContent('this_is_appended_text_content');
@@ -128,10 +128,10 @@ class TagTest extends TestCase
     }
 
     /**
-     * @expectedException        \LogicException
+     * @expectedException \LogicException
      * @expectedExceptionMessage Void elements cannot have any contents.
      */
-    public function testAppendHtmlContentWithVoidElementShouldReturnLogicException()
+    public function testAppendHtmlContentOnVoidElement()
     {
         $tag = new Tag('img');
         $tag->appendHtmlContent('<span>this_is_appended_html_content</span>');
@@ -147,10 +147,10 @@ class TagTest extends TestCase
     }
 
     /**
-     * @expectedException        \LogicException
+     * @expectedException \LogicException
      * @expectedExceptionMessage Void elements cannot have any contents.
      */
-    public function testAppendWithVoidElementShouldReturnLogicException()
+    public function testAppendOnVoidElement()
     {
         $tag = new Tag('img');
         $tag->append(new Tag('img'));
@@ -165,7 +165,7 @@ class TagTest extends TestCase
         $this->assertTrue($tag->isEmpty());
     }
 
-    public function testIsEmptyShouldReturnFale()
+    public function testIsEmptyShouldReturnFalse()
     {
         $tag = new Tag('p');
         $tag->appendTextContent('append_text_content');
@@ -174,10 +174,10 @@ class TagTest extends TestCase
     }
 
     /**
-     * @expectedException        \LogicException
+     * @expectedException \LogicException
      * @expectedExceptionMessage Void elements do not have a closing tag.
      */
-    public function testRenderClosingTag()
+    public function testRenderClosingTagOnVoidElement()
     {
         $tag = new Tag('img');
         $tag->renderClosingTag();
