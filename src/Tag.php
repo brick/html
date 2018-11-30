@@ -75,7 +75,7 @@ class Tag
         $this->name   = $name;
         $this->isVoid = in_array($name, self::VOID_ELEMENTS, true);
 
-        if ($attributes) {
+        if (count($attributes) !== 0) {
             $this->setAttributes($attributes);
         }
     }
