@@ -5,7 +5,7 @@
 A very simple HTML generation library.
 
 [![Build Status](https://secure.travis-ci.org/brick/html.svg?branch=master)](http://travis-ci.org/brick/html)
-[![Coverage Status](https://coveralls.io/repos/brick/html/badge.svg?branch=master)](https://coveralls.io/r/brick/html?branch=master)
+[![Coverage Status](https://coveralls.io/repos/github/brick/html/badge.svg?branch=master)](https://coveralls.io/github/brick/html?branch=master)
 [![Latest Stable Version](https://poser.pugx.org/brick/html/v/stable)](https://packagist.org/packages/brick/html)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](http://opensource.org/licenses/MIT)
 
