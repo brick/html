@@ -1,6 +1,6 @@
 {
   "name": "brick/html",
-  "description": "HTML generation library",
+  "description": "HTML 5 generation library",
   "type": "library",
   "keywords": [
     "brick",

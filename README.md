@@ -2,7 +2,7 @@
 
 <img src="https://raw.githubusercontent.com/brick/brick/master/logo.png" alt="" align="left" height="64">
 
-A very simple HTML generation library.
+A very simple HTML 5 generation library.
 
 [![Build Status](https://secure.travis-ci.org/brick/html.svg?branch=master)](http://travis-ci.org/brick/html)
 [![Coverage Status](https://coveralls.io/repos/github/brick/html/badge.svg?branch=master)](https://coveralls.io/github/brick/html?branch=master)
