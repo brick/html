@@ -78,7 +78,8 @@ $tag->removeAttribute('id');
 
 ### Content
 
-You can set the content of a `Tag`, provided that it's not a *void* tag such as `<br>`, `<input>`, etc.
+You can set the content of a `Tag`, provided that it's not a *void* tag such as `<br>`, `<input>`, etc. 
+If you try to modify the content of a void tag, you'll get a `LogicException`.
 
 You can set or append a plain text content:
 
@@ -94,27 +95,30 @@ $tag->setHtmlContent('Hello, <b>world!</b>');
 $tag->appendHtmlContent("<br>What's up?");
 ```
 
-You can also append the content of another `Tag`:
+You can also append another `Tag`:
 
 ```php
 $tag->append($otherTag);
 ```
 
-You can remove the content of a `Tag`, and check if the `Tag` has an empty content:
+You can remove the content of a `Tag`:
 
 ```php
 $tag->empty();
-$tag->isEmpty(); // true
 ```
 
-If you try to modify the content of a void tag, you'll get a `LogicException`.
+You can check if a `Tag` has an empty content:
+
+```php
+$tag->isEmpty(); // boolean
+```
 
 ### Rendering a tag
 
-You can render a tag by using its `render()` method, or just casting it to string:
+You can render a tag by using its `render()` method, or just by casting it to string:
 
 ```php
-echo $tag; // will output something like <div id="main">Hello, world!</div>
+echo $tag; // will output something like: <div id="main">Hello, world!</div>
 ```
 
 ### Encoding
